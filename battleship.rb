@@ -33,7 +33,18 @@ array.each_slice(10).to_a
 end
 
 def players_shot
-  players_shot = gets.chomp
+  players_shot = ""
+  p "Where would you like to fire?"
+  until players_shot =~ /[a-j]\d0?/
+    p "Please enter valid coordinates. (e.g A4, b9, J7, f1..)"
+    players_shot = gets.chomp
+    players_shot = players_shot.downcase
+    if players_shot =~ /[a-j]\d0?/
+      p "Firing at #{players_shot.upcase}."
+      break
+    end
+  end
+  players_shot
 end
 
 def computer_randshot
@@ -44,4 +55,5 @@ def battleship(players_shot, computers_shot)
 
 end
 
-p board
+players_shot
+
