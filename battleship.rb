@@ -37,8 +37,7 @@ def players_shot
   p "Where would you like to fire?"
   until players_shot =~ /[a-j]\d0?/
     p "Please enter valid coordinates. (e.g A4, b9, J7, f1..)"
-    players_shot = gets.chomp
-    players_shot = players_shot.downcase
+    players_shot = gets.chomp.downcase
     if players_shot =~ /[a-j]\d0?/
       p "Firing at #{players_shot.upcase}."
       break
@@ -48,12 +47,11 @@ def players_shot
 end
 
 def computer_randshot
-  computer_randshot = rand(10)
+  computer_randshot = ('a'..'j').to_a.sample + rand(1..10).to_s
 end
 
 def battleship(players_shot, computers_shot)
 
 end
 
-players_shot
 
