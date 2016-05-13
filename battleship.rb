@@ -1,6 +1,6 @@
 require 'byebug'
-#method to populate a board w/ coordinates
-def board
+
+def board #method to populate a board w/ coordinates
   count = 0
   count10 = 10
   board = []
@@ -20,7 +20,7 @@ def board
 board.each_slice(10).to_a
 end
 
-def players_shot
+def players_shot #ask for players shot to eq letter(a..j) to numbers(1..10)
   players_shot = ""
   p "Where would you like to fire?"
   until players_shot =~ /[a-j]\d0?/
@@ -34,12 +34,34 @@ def players_shot
   players_shot
 end
 
-def computer_randshot
+def computer_randshot #generate random computer shot
   computer_randshot = ('a'..'j').to_a.sample + rand(1..10).to_s
 end
 
-def battleship(players_shot, computers_shot)
-
+def search_board_comp
+  search = board.join
+  if search.include?(computer_randshot)
+    return true
+  else
+    computer_randshot
+  end
 end
+
+def search_board_player
+  search = board.join
+  if search.include?(players_shot)
+    return true
+  else
+    p "You've already shot there."
+    players_shot
+  end
+end
+
+def battleship(players_shot, computers_shot)
+  new_game = board
+  p new_game
+end
+
+p search_board_player
 
 
