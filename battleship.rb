@@ -38,23 +38,28 @@ def computer_randshot #generate random computer shot
   computer_randshot = ('a'..'j').to_a.sample + rand(1..10).to_s
 end
 
-def search_board_comp
+def search_board_comp #checks board if computer shot there if so generate new coordinates
   search = board.join
   if search.include?(computer_randshot)
-    return true
+    return computer_shot
   else
     computer_randshot
   end
 end
 
-def search_board_player
+def search_board_player #checks board if player has shot there if so let them know and ask for new coordinates
   search = board.join
-  if search.include?(players_shot)
-    return true
-  else
-    p "You've already shot there."
-    players_shot
-  end
+  return players_shot if search.include?(players_shot)
+  p "You've already shot there."
+  players_shot
+end
+p search_board_player
+
+def shots #takes shots from player & computer and if valid change the coordinates to either X or O
+
+#    board.each do |coordinates|
+#      coordinates = "X||O"
+#    end
 end
 
 def battleship(players_shot, computers_shot)
