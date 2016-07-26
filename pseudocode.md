@@ -23,3 +23,5 @@ computer needs to randomly fire on the players board random
   using the loops and rand
 each takes turn until a every ship in one of the fleets have
   who ever destroyed the other fleet first wins and the game
+
+this will be deleted and remade into a rails app
