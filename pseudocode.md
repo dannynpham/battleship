@@ -22,5 +22,4 @@ before players starts firing they need to position the fleets
 computer needs to randomly fire on the players board random
   using the loops and rand
 each takes turn until a every ship in one of the fleets have
-  been sunk and at that point the game is over and the player
-  whose fleet is unsunk is the winner
+  who ever destroyed the other fleet first wins and the game
